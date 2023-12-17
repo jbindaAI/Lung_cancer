@@ -1,4 +1,0 @@
-[dicom]
-path = ../LIDC_sets/manifest_10_patients/LIDC-IDRI
-
-sratatat
