@@ -8,9 +8,6 @@ Data_prep_without_tio_warn.ipynb
 lightning_logs/*
 tb_logs/*
 
-# Ignoring paths files
-paths.txt
-
 # Ignoring dataset
 dataset/*
 
