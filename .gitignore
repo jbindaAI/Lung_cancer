@@ -1,2 +1,18 @@
 # Ignoring Jupyter Notebook checkpoints files:
 .ipynb_checkpoints
+
+# Ignoring draft version of notebook
+Data_prep_without_tio_warn.ipynb
+
+# Ignoring logs files
+lightning_logs/*
+tb_logs/*
+
+# Ignoring paths files
+paths.txt
+
+# Ignoring dataset
+dataset/*
+
+# Ignoring pycache
+__pycache__

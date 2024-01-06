@@ -15,6 +15,20 @@ from contextlib import contextmanager
 from pathlib import Path
 from tqdm import tqdm
 
+import argparse
+
+parser = argparse.ArgumentParser(description="Creating LIDC dataset.",
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("-s", "--start_idx", action="store", help="Specifing initial index for first nodule.")
+parser.add_argument("-a", "--ann_output_filename", action="store", help="Specifing name for the output annotations file.")
+parser.add_argument("-m", "--match_table_name", action="store", help="Specifing name for the output match table.")
+args = parser.parse_args()
+config = vars(args)
+
+start_idx = config["start_idx"]
+anns_name = config["ann_output_filename"]
+match_name = config["match_table_name"]
+
 
 ### READING DEFINED PATHS FROM paths.txt FILE:
 with open("paths.txt", "r") as p:
@@ -177,7 +191,7 @@ avg_annotations["target"] = []
 avg_annotations["path"] = []
 
 # New ID for nodules is initialized:
-new_id = 1
+new_id = int(start_idx)
 
 for patient_id in tqdm(pids):
     # Selecting from database scan for the patient with given id. Query object needs transformation to the scan object
@@ -227,10 +241,10 @@ for patient_id in tqdm(pids):
         k += 1
 
 # Saving files:
-with open(f"{save_path}/match.pkl", "wb") as handle:
+with open(f"{save_path}/{match_name}.pkl", "wb") as handle:
     pickle.dump(match, handle)
     
-with open(f"{save_path}/annotations.pkl", "wb") as handle:
+with open(f"{save_path}/{anns_name}.pkl", "wb") as handle:
     pickle.dump(avg_annotations, handle)
 
 # Deleting temporal file for catching torchIO warnings.

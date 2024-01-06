@@ -1,2 +1,2 @@
-../LIDC_sets/manifest_10_patients/LIDC-IDRI
+../LIDC_sets/10_hundred/LIDC-IDRI
 ./dataset
