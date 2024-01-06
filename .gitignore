@@ -8,8 +8,13 @@ Data_prep_without_tio_warn.ipynb
 lightning_logs/*
 tb_logs/*
 
+# Ignoring paths files
+paths.txt
+
 # Ignoring dataset
-dataset/*
+dataset/crops/*
+dataset/masks/*
+
 
 # Ignoring pycache
 __pycache__
